@@ -58,27 +58,27 @@ useEffect(() => {
   );
 }
 
-// export async function getStaticPaths() {
+export async function getStaticPaths() {
 
-//   try {
+  try {
 
-//     const res = await fetch(
-//       "https://api.buttercms.com/v2/posts/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1"
-//     );
-//     const datos = await res.json();
+    const res = await fetch(
+      "https://api.buttercms.com/v2/posts/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1"
+    );
+    const datos = await res.json();
 
-//     const paths = datos.data.map(({slug})=>({params:{id:slug}}));
-//     return {
-//       paths,
-//       fallback:false
+    const paths = datos.data.map(({slug})=>({params:{id:slug}}));
+    return {
+      paths,
+      fallback:false
  
-//     };
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   try {
     const res = await fetch(
       `https://api.buttercms.com/v2/posts/${params.id}/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1`
