@@ -58,27 +58,27 @@ useEffect(() => {
   );
 }
 
-export async function getStaticPaths() {
+// export async function getStaticPaths() {
 
-  try {
+//   try {
 
-    const res = await fetch(
-      "https://api.buttercms.com/v2/posts/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1"
-    );
-    const datos = await res.json();
+//     const res = await fetch(
+//       "https://api.buttercms.com/v2/posts/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1"
+//     );
+//     const datos = await res.json();
 
-    const paths = datos.data.map(({slug})=>({params:{id:slug}}));
-    return {
-      paths,
-      fallback:false
+//     const paths = datos.data.map(({slug})=>({params:{id:slug}}));
+//     return {
+//       paths,
+//       fallback:false
  
-    };
-  } catch (error) {
-    console.log(error);
-  }
-}
+//     };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   try {
     const res = await fetch(
       `https://api.buttercms.com/v2/posts/${params.id}/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1`
@@ -88,7 +88,7 @@ export async function getStaticProps({ params }) {
     
     return {
       props: { data },
-      revalidate: 10
+      // revalidate: 10
     };
   } catch (err) {
     console.log(err);
@@ -142,6 +142,8 @@ const Container = styled.section`
   pre {
     background: #6a65cd4e;
     padding: 2%;
+    width:100%;
+
     border-radius: 5px;
     code {
       color: var(--purple);
@@ -152,7 +154,7 @@ const Container = styled.section`
   min-height: 60vh;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   > div {

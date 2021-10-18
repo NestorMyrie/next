@@ -82,7 +82,7 @@ const Footer = React.memo(() => {
         ¡Por cada café que toma un programador aumenta su RAM cerebral y su SSD de aprendizaje!
         </p>
         <a href="https://www.buymeacoffee.com/NestorMyrie" target="_blank" rel="noopener noreferrer">
-          <img src={imgs.coffe.src} alt="buy me a coffe" />
+          <img src={imgs.coffe.src} alt="buy me a coffe"  className='cofehover'/>
         </a>
       </div>
 
@@ -162,6 +162,12 @@ background:${()=>useRouter().asPath=='/'?'var(--bg)':'var(--sbg)'};
           border: 1px solid var(--purple);
         }
       }
+    }
+  }
+  .cofehover{
+    transition:transform 200ms;
+    &:hover{
+      transform:scale(.9)
     }
   }
   .center {

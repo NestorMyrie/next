@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
+
 const Navegator = () => {
   const top = () => {
     window.scroll({
@@ -24,7 +25,7 @@ const Navegator = () => {
         </p>
       </Link>
       <Link href="/blog" onClick={top}>
-        <p className={router.asPath == "/blog" ? "active" : ""}>BLOG</p>
+        <p className={router.pathname.includes('blog')  ? "active" : ""}>BLOG</p>
       </Link>
     </Container>
   );

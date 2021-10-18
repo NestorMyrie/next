@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import Cart from "../../components/element/cart.jsx";
 import styled from "styled-components";
-import Provider from "../../components/provider";
 import Loader from "../../components/loader";
 import bg from "../../IMGS/proyects.png";
 import Error from "../../components/element/Error";
@@ -10,8 +9,7 @@ import "aos/dist/aos.css";
 
 import Head from 'next/head'
 
-function Index(props) {
-  const datos = useContext(Provider);
+function Index({datos}) {
   const container = useRef();
   const nav = useRef();
   const [api, setApi] = useState(null);
@@ -44,21 +42,21 @@ function Index(props) {
     element.classList.add("active");
   };
 
-  useEffect(() => {}, [nav]);
 
-  const intervalo = setInterval(() => {
-    //Aca verifico si en el provider no esta vacio
-    if (datos.length > 0) {
-      //en caso de que no este vacio recorre todo
-      setApi(datos[0]);
-      //
-      clearInterval(intervalo);
-    }
-  }, 90);
 
-  useEffect(() => {
-    return intervalo;
-  }, [api]);
+  // const intervalo = setInterval(() => {
+  //   //Aca verifico si en el provider no esta vacio
+  //   if (datos.length > 0) {
+  //     //en caso de que no este vacio recorre todo
+  //     setApi(datos[0]);
+  //     //
+  //     clearInterval(intervalo);
+  //   }
+  // }, 90);
+
+  // useEffect(() => {
+  //   return intervalo;
+  // }, [api]);
   //aca estoy aplicando una clase que viene desde la api con la categoria, asi que al precionar
   //el click verifico el id que viene desde la api y solo muestro la categoria con la que coincida
   const cat = (e) => {
@@ -190,11 +188,10 @@ function Index(props) {
             <li></li>
           </ul>
         </nav>
-        {api == undefined && <Loader />}
-
-        {api != undefined && (
           <div ref={container}>
-            {api.map((e, i) => {
+        {/* {api == undefined && <Loader />} */}
+
+            {datos.data.map((e, i) => {
               if (e.status == "published" && e.categories[0].name == "blog") {
                 return (
                   <div className={e.tags[0].name}>
@@ -213,11 +210,30 @@ function Index(props) {
             })}
             {error && <Error ky="blogs" blog />}
           </div>
-        )}
       </Main>
     </div>
   );
 }
+
+
+export async function getServerSideProps({ params }) {
+  try {
+    const res = await fetch(
+      `https://api.buttercms.com/v2/posts/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1`
+    );
+
+    const datos = await res.json();
+    
+    return {
+      props: { datos },
+      // revalidate: 10
+    };
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
 
 export default Index;
 

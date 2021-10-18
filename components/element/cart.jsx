@@ -15,25 +15,21 @@ export default function Prueba(props) {
         <h3>{props.title}</h3>
         <p>{props.description}</p>
         <p>{props.date}</p>
-      {
-          !props.rutaname && (
-          
+        {!props.rutaname && (
+          <a href={props.ruta} >
+            <span >
+              VER BLOG
+            </span>
+          </a>
+        )}
 
-
-<span>  <a
-            href={props.ruta}
-            onClick={checker}
-          >
-          VER BLOG
-          </a></span>
-          )
-      }
-
-        {
-        props.rutaname && (
-<span><a href={props.ruta} target='_blank'>VER PROYECTOS</a></span>
-            )
-        }
+        {props.rutaname && (
+          <a href={props.ruta} target="_blank">
+            <span >
+              VER PROYECTOS
+            </span>
+          </a>
+        )}
       </div>
     </Carta>
   );
@@ -82,12 +78,12 @@ const Carta = styled.div`
     height: 130px;
   }
 
-  span {
-      a{
-          color:var(--primary);
-      }
+  a {
+    span {
+      color: var(--primary);
+    }
     display: block;
-    cursor:pointer;
+    cursor: pointer;
     width: 95%;
     padding: 1% 0;
     height: 30px;
