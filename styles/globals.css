@@ -1,0 +1,88 @@
+/*font-family: 'Passion One', cursive;
+font-family: 'Rajdhani', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Pathway Gothic One', sans-serif;
+*/
+
+@font-face {
+  font-family: mv boli;
+  src: url('./Styles/mvboli.ttf') format('truetype');
+}
+
+:root{
+  --opaheader:0;
+  ---a:'a';
+  --bg:#202125;
+  --sbg:#282829;
+  --primary:#FF0451;
+  --text:#B8B8B8;
+  --purple:#6A65CD;
+  --bgposi:0px;
+  --active:false;
+
+
+
+  /* Skillnavar */
+  --skilborder:1px solid transparent;
+  --skilcolor:#B8B8B8;
+
+  --serviceborder:1px solid transparent;
+  --servicecolor:#B8B8B8;
+
+  --contactborder:1px solid transparent;
+  --contactcolor:#B8B8B8;
+
+  --aboutborder:1px solid transparent;
+  --aboutcolor:#B8B8B8;
+
+
+  /* FORMULARIO */
+  --formDisplay:none;
+  --formScale:0;
+  --formBg:'transparent'
+}
+*{
+  margin: 0;
+  padding: 0;
+  color: white;
+  scroll-behavior: smooth;
+
+  
+}
+body{
+  background: var(--bg);
+  width: 100vw;
+  overflow-x: hidden;
+
+}
+a{
+  text-decoration: none;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #ff0451 #ffffff00;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff00;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.555);
+    border-radius: 28px;
+  }
+
+  @media screen and (max-width:800px){
+    #bmc-wbtn{
+      display: none !important;
+    }
+  }
