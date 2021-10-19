@@ -1,7 +1,7 @@
 import React from "react";
 import Portafolio from "../components/portolio";
 import  Head from 'next/head'
-export default function App (){
+ function App (){
   return(
     <div>
       <Head>
@@ -21,3 +21,5 @@ export default function App (){
     </div>
   )
 }
+
+export default App

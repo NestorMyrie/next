@@ -168,7 +168,7 @@ function Index({datos}) {
           <h1>Categorias</h1>
           <ul ref={nav}>
             <li className=" visible active" id="all" onClick={cat}>
-              All
+              TODOS
             </li>
             <li className="visible" id="frontend" onClick={cat}>
               {" "}

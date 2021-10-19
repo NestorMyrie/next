@@ -7,23 +7,24 @@ import Services from "./services.jsx";
 import Form from "./form.jsx";
 import ConfirmMesage from './element/SendMail'
 import Loader from "./loader.js";
-import { Helmet } from "react-helmet";
+import styled from "styled-components";
 import { useRouter } from "next/router";
-const Portafolio =React.memo(()=>{
+const Portafolio =()=>{
   console.log(useRouter)
   
     //haciendo animacion de scroll
 
     const [loader,setLoader]=useState(true)
     useEffect(() => {
-      setTimeout(() => {
         setLoader(false)
-      },500)
+        setTimeout(() => {
+        document.body.style.setProperty('--opainitial','1')
+          
+        },300)
     },[loader])
   
     return (
-      <div>
-        <Helmet><title>Portafolio</title></Helmet>
+      <Container>
        {loader && <Loader></Loader>}
         {!loader && (
         <div>
@@ -40,9 +41,15 @@ const Portafolio =React.memo(()=>{
         <Form />
         </div>
         )}
-      </div>
+      </Container>
     );
   
-}) 
+}
+
+
+const Container = styled.div`
+opacity:var(--opainitial);
+transition:opacity 1300ms;
+`
 
 export default  Portafolio

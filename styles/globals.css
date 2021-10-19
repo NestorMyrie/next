@@ -10,6 +10,7 @@ font-family: 'Pathway Gothic One', sans-serif;
 }
 
 :root{
+  --opainitial:0;
   --opaheader:0;
   ---a:'a';
   --bg:#202125;
