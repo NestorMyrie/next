@@ -198,7 +198,7 @@ function Index({datos}) {
                     <Cart
                       key={i}
                       title={e.title}
-                      description={e.meta_description}
+                      description={e.summary}
                       ruta={`/blog/${e.slug}`}
                       portada={e.featured_image}
                       data-aos="fade-up"

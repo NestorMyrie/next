@@ -11,7 +11,7 @@ require('prismjs/components/prism-javascript')
 export default function Page({ data }) {
 
  //https://api.buttercms.com/v2/posts/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1"
-const {slug,body,featured_image,title,meta_description} =data.data
+const {slug,body,featured_image,title ,summary} =data.data
 const container_content =useRef()
 
 useEffect(() => {
@@ -23,8 +23,10 @@ useEffect(() => {
       <Head>
         <title>{`${title}`}</title>
       <meta property="og:title" content={`${title}`}/>
- <meta property="og:description" content={`${meta_description}`}/>
-   <meta property="og:image" content={`${featured_image}`}/>
+ <meta property="og:description" content={`${summary}`}/>
+   <meta property="og:image:secure_ur" content={`${featured_image}`}/>
+   <meta property="og:image:width" content="400" /> 
+<meta property="og:image:height" content="300" />
   <meta property="og:url" content="http://nestormyrie.com"/>
         
       </Head>
