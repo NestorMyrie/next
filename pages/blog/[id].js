@@ -24,8 +24,8 @@ useEffect(() => {
         <title>{`${title}`}</title>
       <meta property="og:title" content={`${title}`}/>
  <meta property="og:description" content={`${summary}`}/>
-   <meta property="og:image" content={`${featured_image}`}/>
-   <meta property="og:image:width" content="300" /> 
+   <meta property="og:image" content={`https://st2.depositphotos.com/4022475/5850/v/600/depositphotos_58509553-stock-illustration-black-space-invaders-pattern.jpg`}/>
+   <meta property="og:image:width" content="200" /> 
 <meta property="og:image:height" content="200" />
   <meta property="og:url" content="http://nestormyrie.com"/>
 
