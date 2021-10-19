@@ -24,7 +24,7 @@ useEffect(() => {
         <title>{`${title}`}</title>
       <meta property="og:title" content={`${title}`}/>
  <meta property="og:description" content={`${summary}`}/>
-   <meta property="og:image:secure_url" content={`${featured_image}`}/>
+   <meta property="og:image" content={`${featured_image}`}/>
    <meta property="og:image:width" content="300" /> 
 <meta property="og:image:height" content="200" />
   <meta property="og:url" content="http://nestormyrie.com"/>
