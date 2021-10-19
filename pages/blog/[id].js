@@ -28,6 +28,11 @@ useEffect(() => {
    <meta property="og:image:width" content="300" /> 
 <meta property="og:image:height" content="200" />
   <meta property="og:url" content="http://nestormyrie.com"/>
+
+  <link itemprop="thumbnailUrl" href={`${featured_image}`}/>
+  <span itemprop="thumbnail" itemscope='' itemtype="http://schema.org/ImageObject"> 
+  <link itemprop="url" href={`${featured_image}`}/> </span>
+
         
       </Head>
       <Container>
