@@ -5,6 +5,9 @@ import "aos/dist/aos.css";
 import Link from 'next/link'
 import Head from 'next/head'
 
+
+import prism from 'prismjs'
+require('prismjs/components/prism-javascript')
 export default function Page({ data }) {
 
  //https://api.buttercms.com/v2/posts/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1"
@@ -12,7 +15,8 @@ const {slug,body,featured_image,title,meta_description} =data.data
 const container_content =useRef()
 
 useEffect(() => {
-  container_content.current.innerHTML=body
+  container_content.current.innerHTML=body;
+  prism.highlightAll();
 },[])
   return (
     <div>
@@ -96,6 +100,9 @@ export async function getServerSideProps({ params }) {
 }
 
 const Container = styled.section`
+b{
+  font-weight:bold
+}
   input {
     color: green;
   }
@@ -108,12 +115,15 @@ const Container = styled.section`
   h4,
   h5,
   h6 {
-    font-family: Roboto;
-    color: white;
+    font-family: mv boli;
+    color: var(--purple);
     margin-bottom: 20px;
     font-size: 1.4rem;
   }
   h1 {
+    font-family: roboto;
+    color: var(--primary);
+
     font-size: 2rem;
     margin-top: 40px;
     margin-left: 10px;
@@ -140,7 +150,6 @@ const Container = styled.section`
     color: var(--purple);
   }
   pre {
-    background: #6a65cd4e;
     padding: 2%;
     width:100%;
 
@@ -273,7 +282,7 @@ const Container = styled.section`
       border: 1px solid var(--primary);
       align-self: flex-start;
       font-family: roboto;
-      padding: 1%;
+      padding: 5%;
       border-radius: 5px;
       display: flex;
       width: 50%;

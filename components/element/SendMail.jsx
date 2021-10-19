@@ -35,7 +35,7 @@ const close = (props) => {
     return(
 <Container ref={container} alto={resize}>
   <div id='ocult' ref={content}> 
-     <img src={imgs.svgForm} alt="form" />
+     <img src={imgs.svgForm.src} alt="form" />
       <div>
 <span>
 <h4>GRACIAS POR CONTACTARME</h4>
@@ -115,6 +115,52 @@ transition:transform 400ms;
 
 
 }
+@media (max-width:1500px){
+
+    font-size:1rem;
+>div{
+    transform:scale(var(--formScale));
+transition:transform 400ms;
+padding:0% 3%;
+
+    width:auto;
+    min-height:60%;
+    *{
+        font-family:Rajdhani;
+    }
+    div:nth-child(2){
+      span{margin-bottom:20%}
+        h4{
+            color:var(--primary)
+        }
+
+        .close{
+            color:var(--purple);
+            transform:translateY(150%);
+            
+        }
+        .close{
+            cursor:pointer;
+            font-size:1.4rem;
+            align-self:flex-end;
+            font-family:roboto;
+            border-bottom:1px solid transparent;
+
+            &:hover{
+                border-bottom:1px solid var(--primary);
+            }
+        }
+        h4{
+          
+            font-size:2.4rem;
+        }
+       
+    }
+
+
+}
+}
+
 
 @media (max-width:800px){
 height:100%;

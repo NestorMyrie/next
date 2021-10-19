@@ -110,7 +110,7 @@ const Container = styled.section`
     font-size:3rem;
   }
   >img {
-    top: -16%;
+    top: -13%;
     position: absolute;
     transform: rotateY(180deg);
   }
