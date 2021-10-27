@@ -310,4 +310,58 @@ b{
       }
     }
   }
+
+
+
+  .download{
+    display:inline-block;
+    text-decoration:none;
+    text-transform:uppercase;
+    margin-top:10px;
+    color:var(--purple);
+    border:1px solid var(--purple);
+    padding:.5rem 1rem;
+    border-radius:3px;
+    position:relative;
+
+    &::before{
+      font-family: "Font Awesome 5 Free";
+   content: "\f019";
+   display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   font-weight: 900;
+
+   transform:translate(-20%,-10%)
+    }
+    &::after{
+      content:'';
+      clip-path: circle(0.0% at 100% 0);
+      z-index:-1;
+
+      position:absolute;
+      left:0;
+      top:0;
+      transition:clip-path 400ms;
+      height:100%;
+      width:100%;
+      background-color:var(--primary);
+    }
+    &:hover{
+      color:white;
+      font-weight:bold;
+      border:1px solid white;
+
+      &::after{
+      content:'';
+      clip-path: circle(100% at 100% 0);
+    
+    }
+    }
+   
+  }
+  .material{
+
+  }
+
 `;
