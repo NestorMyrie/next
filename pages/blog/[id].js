@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from 'next/link'
 import Head from 'next/head'
+import Loader from "../../components/loader";
 
 
 import prism from 'prismjs'
@@ -14,9 +15,15 @@ export default function Page({ data }) {
 const {slug,body,featured_image,title ,summary} =data.data
 const container_content =useRef()
 
+const [loader,setLoader ]= useState(true);
+
 useEffect(() => {
   container_content.current.innerHTML=body;
   prism.highlightAll();
+},[])
+
+useEffect(() => {
+  setLoader(false)
 },[])
   return (
     <div>
@@ -32,6 +39,12 @@ useEffect(() => {
  
         
       </Head>
+
+
+{
+  loader && <Loader></Loader>
+}
+
       <Container>
         <img src={featured_image}></img>
         <div className='info' ref={container_content}>

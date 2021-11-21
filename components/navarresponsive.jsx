@@ -61,7 +61,8 @@ const Navres = React.memo(() => {
             </b>
           </Link>
           <Link href="/blog" onClick={topUp}>
-            <b className={router.asPath == "/blog" ? "active" : ""}>
+            <b className={router.asPath.includes('/blog') ? "active" : ""}>
+              
               <svg
                 width="40"
                 height="38"
