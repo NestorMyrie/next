@@ -12,7 +12,7 @@ const About = React.memo((props) =>{
    <div className="info" data-aos="fade-up">
      <h3 >INFORMACION GENERAL</h3>
      <p translate='yes'>
-     Mi nombre es Néstor Myrie..  soy desarrollador web enfocado al frontend con conocimientos intermedio en JavaScript, me considero un desarrollador bastante autodidacta. Me gusta dar siempre el 100% y me esfuerzo por completar mis objetivos<br />
+     Mi nombre es Néstor Myrie  soy desarrollador web enfocado al frontend con conocimientos intermedio en JavaScript, me considero un desarrollador bastante autodidacta. Me gusta dar siempre el 100% y me esfuerzo por completar mis objetivos<br />
        <br />
        <p>Como podrás ver en mi portafolio no cuento con experiencia de diseño, pero maquetaré al 100% cualquier diseño</p>
        Soy un apasionado ala maquetación y desarrollo, me encargaré de darle vida a tu proyecto para que sea moderno y dinámico

@@ -10,9 +10,10 @@ import "aos/dist/aos.css";
 import Head from 'next/head'
 
 function Index({datos}) {
+  console.log({a:datos})
   const container = useRef();
   const nav = useRef();
-  const [api, setApi] = useState(null);
+  // const [api, setApi] = useState(null);
   //mostrare un div si no hay elementos en la categoria
   const [error, setError] = useState(false);
 
@@ -43,22 +44,6 @@ function Index({datos}) {
   };
 
 
-
-  // const intervalo = setInterval(() => {
-  //   //Aca verifico si en el provider no esta vacio
-  //   if (datos.length > 0) {
-  //     //en caso de que no este vacio recorre todo
-  //     setApi(datos[0]);
-  //     //
-  //     clearInterval(intervalo);
-  //   }
-  // }, 90);
-
-  // useEffect(() => {
-  //   return intervalo;
-  // }, [api]);
-  //aca estoy aplicando una clase que viene desde la api con la categoria, asi que al precionar
-  //el click verifico el id que viene desde la api y solo muestro la categoria con la que coincida
   const cat = (e) => {
     if (e.target.id === "all") {
       setError(false);

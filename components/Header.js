@@ -119,6 +119,7 @@ text-align:center;
       font-size:1.5em;
       padding:3% 5%;
       border:1px solid white;
+      transition:all 300ms !important;
       &:hover{
        background:white;
        i{

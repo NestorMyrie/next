@@ -8,22 +8,28 @@ import { Helmet } from "react-helmet";
 const Proyectos = () => {
   const [estado, setEstado] = useState(null);
 
+
+
+  // https://api.buttercms.com/v2/posts/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1
+
   const api = useContext(Provider);
   const [loader,setLoader]=useState(true)
 
-  useEffect(() => {
-    const intervalo = setInterval(() => {
-      if (api.length > 0) {
-        setEstado(api[0]);
-        clearInterval(intervalo);
-      }
-      return'a'
-    }, 60);
-  }, [api]);
+  // useEffect(() => {
+  //   const intervalo = setInterval(() => {
+  //     if (api.length > 0) {
+  //       setEstado(api[0]);
+  //       clearInterval(intervalo);
+  //     }
+  //     return'a'
+  //   }, 60);
+  // }, [api]);
 
-  useEffect(() => {
+  useEffect(async() => {
       setLoader(false)
 
+     const datos= await fetch('https://api.buttercms.com/v2/posts/?auth_token=283cd9d21094b8358fecd40bda277b3ee034c0a1').then(e=>e.json()).then(e=>e)
+  setEstado(datos.data)
   },[loader])
 
   return (
